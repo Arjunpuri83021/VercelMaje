@@ -1,10 +1,17 @@
 {
-    "version": 2,
-    "builds": [{ "src": "*.js", "use": "@vercel/node" }],
-    "routes": [
+  "version": 2,
+  "builds": [{ "src": "build/*", "use": "@vercel/static-build" }],
+  "routes": [
     {
-      "src": "/(.*)",
-      "dest":"/"
+      "src": "/api/getpostdata",
+      "methods": ["GET"],
+      "dest": "https://majeback-production.up.railway.app/getpostdata",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://66899ff4abe78abbffb44dac--majehimaje.netlify.app",
+        "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type,Authorization",
+        "Access-Control-Allow-Credentials": "true"
+      }
     }
-]
+  ]
 }
